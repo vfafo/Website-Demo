@@ -10,12 +10,7 @@ html {
 
 body {
   margin: 0;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/assets/images/main.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
-  position: relative;
+  height: 500vh;
 }
 
 .wrapper {
@@ -27,14 +22,23 @@ body {
 header {
   display: flex;
   justify-content: space-between;
+  border: 2px solid red;
+  padding: 1.5em;
   align-items: center;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/assets/images/main.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  position: fixed;
+  z-index: 99;
+  width: 100%;
 }
 
 .logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin: 4em;
 }
 .logo svg {
   width: 40px;
@@ -63,7 +67,6 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 4em;
 }
 nav ul {
   width: 23em;
@@ -100,15 +103,21 @@ nav ul li a.active:before {
 }
 
 .welcome {
-  border: 2px solid red;
-  margin: 4em;
+  overflow: hidden;
+  position: relative;
+  padding: 4em;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
   justify-content: space-evenly;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/assets/images/main.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  position: relative;
 }
 .welcome .welcome-title {
-  border: 2px solid red;
   display: flex;
   flex-direction: column;
   align-items: start;
@@ -126,92 +135,87 @@ nav ul li a.active:before {
   color: rgb(224, 224, 224);
 }
 .welcome .welcome-details {
-  border: 2px solid red;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 2em;
 }
 .welcome .welcome-details .details-info {
   display: flex;
   flex-direction: column;
+  flex-basis: fit-content;
   align-items: start;
-  justify-content: flex-start;
 }
 .welcome .welcome-details .details-info .details-info-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, auto);
+  grid-template-areas: "left right";
   align-items: center;
-  justify-content: flex-start;
-  pading: -1em;
+  justify-content: center;
+  gap: 2em;
 }
 .welcome .welcome-details .details-info .details-info-container svg {
-  border: 2px solid red;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
+  grid-area: left;
 }
-.welcome .welcome-details .details-info .details-info-container .details-info-container-element {
-  border: 2px solid red;
+.welcome .welcome-details .details-info .details-info-container .details-info-container-details {
+  grid-area: right;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0;
+  align-items: flex-start;
+  justify-content: center;
 }
-.welcome .welcome-details .details-info .details-info-container .details-info-container-element h4 {
-  border: 2px solid red;
+.welcome .welcome-details .details-info .details-info-container .details-info-container-details h4 {
   font-weight: 700;
   font-size: 0.8em;
   color: rgb(224, 224, 224);
 }
-.welcome .welcome-details .details-info .details-info-container .details-info-container-element p {
-  border: 2px solid red;
+.welcome .welcome-details .details-info .details-info-container .details-info-container-details p {
+  font-size: 0.8em;
+}
+
+.description {
+  height: 50vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url("/assets/images/beer.jpg");
+  background-size: cover;
+  background-clip: padding-box;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed;
+  position: relative;
 }
 
 .social-networks {
-  padding: 3%;
-  margin-top: 2%;
-}
-.social-networks .social-container {
   display: flex;
-  flex-direction: row;
+  flex-grow: 2;
   align-items: center;
   justify-content: center;
 }
-.social-networks .social-container .social-rectangle {
-  display: inline-block;
-  width: 3em;
-  height: 3em;
-  border: 0.05em solid #0e683e;
-  transform: rotate(45deg);
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-box-shadow: 0.4em 0.4em 0px 0px #dddddd;
-  box-shadow: 0.4em 0.4em 0px 0px #424242;
-  opacity: 1;
-  margin-left: 0.6em;
-  margin-right: 0.6em;
-  border: 1px solid white;
-  color: #ffffff;
-  box-shadow: none;
-  -webkit-transition: color 0.2s ease-in-out;
+.social-networks ul {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2em;
+  padding-left: 0px;
 }
-.social-networks .social-container .social-rectangle i {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  font-size: 1.2em;
-  transform: translate(-50%, -50%) rotate(-45deg);
-  -webkit-transform: translate(-50%, -50%) rotate(-45deg);
-  -moz-transform: translate(-50%, -50%) rotate(-45deg);
-  -o-transform: translate(-50%, -50%) rotate(-45deg);
-  -ms-transform: translate(-50%, -50%) rotate(-45deg);
+.social-networks ul:hover > li {
+  color: rgb(167, 146, 129);
 }
-.social-networks .social-container .social-rectangle:hover {
-  background-color: #ffffff;
-  color: rgb(161, 161, 161);
-  border-color: #666;
+.social-networks ul li {
+  color: rgba(167, 146, 129, 0.6);
+  list-style-type: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4em;
+  height: 4em;
+  border: 1px solid rgba(167, 146, 129, 0.4);
+  cursor: pointer;
+  transition: ease 0.3s;
 }
-.social-networks .social-container .social-rectangle:focus {
-  outline: none;
+.social-networks ul li:hover {
+  color: rgb(167, 146, 129);
+  border: 1px solid rgb(167, 146, 129);
 }/*# sourceMappingURL=index.css.map */
