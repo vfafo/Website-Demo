@@ -1,5 +1,9 @@
-* {
-  font-family: "Poppins", sans-serif;
+.title-font {
+  font-family: "Yeseva One", cursive;
+}
+
+.description-font {
+  font-family: "Overpass", sans-serif;
 }
 
 html {
@@ -10,29 +14,33 @@ html {
 
 body {
   margin: 0;
-  height: 500vh;
-}
-
-.wrapper {
-  max-width: auto;
-  color: #ffffff;
-  margin: 0 auto;
+  background-color: transparent;
+  overflow-x: hidden;
 }
 
 header {
+  --background:linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/assets/images/main.jpg");
   display: flex;
   justify-content: space-between;
-  border: 2px solid red;
   padding: 1.5em;
   align-items: center;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/assets/images/main.jpg");
+  background: var(--background);
   background-size: cover;
   background-repeat: no-repeat;
-  background-position: center center;
+  background-position: center;
   background-attachment: fixed;
-  position: fixed;
+  position: sticky;
+  top: 0;
   z-index: 99;
-  width: 100%;
+}
+
+.header-scrolled {
+  --background: none;
+  -webkit-backdrop-filter: blur(20px);
+          backdrop-filter: blur(20px);
+  transition: -webkit-backdrop-filter 0.5s ease;
+  transition: backdrop-filter 0.5s ease;
+  transition: backdrop-filter 0.5s ease, -webkit-backdrop-filter 0.5s ease;
 }
 
 .logo {
@@ -80,6 +88,7 @@ nav ul li a {
   color: rgb(224, 224, 224);
   text-decoration: none;
   position: relative;
+  font-size: 1.2em;
 }
 nav ul li a:before {
   position: absolute;
@@ -102,43 +111,55 @@ nav ul li a.active:before {
   bottom: -6px;
 }
 
-.welcome {
-  overflow: hidden;
-  position: relative;
-  padding: 4em;
-  display: flex;
-  align-items: flex-start;
-  flex-direction: column;
-  justify-content: space-evenly;
+.welcome-background {
   background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/assets/images/main.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center center;
   background-attachment: fixed;
-  position: relative;
+  height: 100vh;
+}
+
+.welcome {
+  padding: 0 0 0 4em;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2em;
+  color: rgb(224, 224, 224);
 }
 .welcome .welcome-title {
   display: flex;
   flex-direction: column;
   align-items: start;
-  justify-content: center;
+  justify-content: space-between;
+  gap: 1em;
+  font-weight: 700;
+  animation: introload-from-left 1s ease-in-out forwards;
 }
 .welcome .welcome-title h2 {
-  font-weight: 700;
+  font-weight: inherit;
   font-size: 3em;
-  color: rgb(224, 224, 224);
+  color: inherit;
   margin-bottom: -0.2em;
 }
 .welcome .welcome-title .subtitle {
-  font-weight: 700;
+  font-weight: inherit;
   font-size: 1.5em;
-  color: rgb(224, 224, 224);
+  color: inherit;
+}
+.welcome .welcome-title span {
+  border-bottom: 2px solid rgb(161, 161, 161);
+  width: 30%;
 }
 .welcome .welcome-details {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 2em;
+  gap: 3em;
+  color: inherit;
+  animation: introload-from-left 1s ease-in-out forwards;
 }
 .welcome .welcome-details .details-info {
   display: flex;
@@ -152,7 +173,7 @@ nav ul li a.active:before {
   grid-template-areas: "left right";
   align-items: center;
   justify-content: center;
-  gap: 2em;
+  gap: 1.5em;
 }
 .welcome .welcome-details .details-info .details-info-container svg {
   width: 40px;
@@ -164,31 +185,206 @@ nav ul li a.active:before {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  justify-content: center;
+  justify-content: start;
 }
 .welcome .welcome-details .details-info .details-info-container .details-info-container-details h4 {
   font-weight: 700;
   font-size: 0.8em;
-  color: rgb(224, 224, 224);
+  color: inherit;
 }
 .welcome .welcome-details .details-info .details-info-container .details-info-container-details p {
+  color: inherit;
   font-size: 0.8em;
+}
+.welcome .reservation-card {
+  animation: introload-from-right 1s ease-in-out forwards;
+  position: absolute;
+  right: 5%;
+  bottom: 10%;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 30%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  gap: 1em;
+  background-color: rgb(170, 78, 78);
+}
+.welcome .reservation-card h2 {
+  font-weight: inherit;
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: -0.2em;
+  color: rgb(201, 197, 197);
+}
+.welcome .reservation-card .contact-form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+.welcome .reservation-card .contact-form-container .row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+}
+.welcome .reservation-card .contact-form-container .row .form-attribute {
+  width: 100%;
+  margin: 1em;
+}
+.welcome .reservation-card .contact-form-container .row .form-attribute .form-input {
+  width: 100%;
+  font-size: 1.02em;
+  border-radius: 10px;
+  background-color: rgb(50, 50, 50);
+  border: none;
+  padding: 0.5em;
+  color: rgb(201, 197, 197);
+}
+.welcome .reservation-card .contact-form-container .row .form-attribute .form-input:focus {
+  outline: 0;
+  border-bottom: 1px solid rgb(201, 197, 197);
+}
+.welcome .reservation-card .contact-form-container .row .form-attribute .form-input::-moz-placeholder {
+  color: rgb(132, 132, 132);
+  font-family: "Varela", sans-serif;
+}
+.welcome .reservation-card .contact-form-container .row .form-attribute .form-input::placeholder {
+  color: rgb(132, 132, 132);
+  font-family: "Varela", sans-serif;
+}
+.welcome .reservation-card .contact-form-container .row_1 {
+  width: 100%;
+}
+.welcome .reservation-card .contact-form-container .form-submit .input-submit {
+  display: flex;
+  position: relative;
+  border: none;
+  background-color: #272727;
+  -webkit-transition: background-color 0.2s ease-out;
+  border-bottom: 2px solid rgb(187, 186, 186);
+  width: 100%;
+  border-radius: 10px;
+  color: rgb(187, 186, 186);
+  padding: 0.6em 1.2em;
+  text-align: center;
+  text-justify: center;
+  text-decoration: none;
+  cursor: pointer;
+}
+.welcome .reservation-card .contact-form-container .form-submit .input-submit:hover {
+  background-color: rgb(187, 186, 186);
+  color: #000000;
+  border-bottom: 2px solid #000000;
+}
+
+.hidden {
+  opacity: 0;
 }
 
 .description {
-  height: 50vh;
-  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.9)), url("/assets/images/beer.jpg");
+  height: 60vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/assets/images/coffee.jpg");
   background-size: cover;
   background-clip: padding-box;
   background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed;
+  background-position: 60% 30%;
   position: relative;
+}
+.description .visit-us-card {
+  left: 5%;
+  top: -7%;
+  position: absolute;
+  background-color: rgb(170, 78, 78);
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+  width: 30%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2), 0 4px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  gap: 1em;
+}
+.description .visit-us-card h2 {
+  font-weight: inherit;
+  font-size: 2em;
+  margin-bottom: -0.2em;
+  color: rgb(201, 197, 197);
+}
+.description .visit-us-card p {
+  font-weight: inherit;
+  font-size: 1em;
+  color: rgb(201, 197, 197);
+}
+.description .visit-us-card span {
+  border-bottom: 2px solid rgb(201, 197, 197);
+  width: 10%;
+}
+.description .visit-us-card .explore-flavours-btn {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  left: 10%;
+  background-color: #272727;
+  -webkit-transition: background-color 0.2s ease-out;
+  border-bottom: 2px solid rgb(187, 186, 186);
+  width: 30%;
+  border-radius: 10px;
+  color: rgb(187, 186, 186);
+  padding: 0.6em 1.2em;
+  text-align: center;
+  text-justify: center;
+  text-decoration: none;
+}
+.description .visit-us-card .explore-flavours-btn:hover {
+  background-color: rgb(187, 186, 186);
+  color: #000000;
+  border-bottom: 2px solid #000000;
+}
+
+.menu-section {
+  height: 50vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/assets/images/berry.jpg");
+  background-size: cover;
+  background-clip: padding-box;
+  background-repeat: no-repeat;
+  background-position: 60% 30%;
+  position: relative;
+  padding: 0 0 0 4em;
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2em;
+  color: rgb(224, 224, 224);
+  animation: introload-from-left 1s ease-in-out forwards;
+}
+.menu-section .explore-flavours-btn {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(170, 78, 78);
+  -webkit-transition: background-color 0.2s ease-out;
+  border-bottom: 2px solid rgb(187, 186, 186);
+  border-radius: 10px;
+  color: #000000;
+  padding: 0.6em 1.2em;
+  text-align: center;
+  text-justify: center;
+  text-decoration: none;
+}
+.menu-section .explore-flavours-btn:hover {
+  background-color: rgb(187, 186, 186);
+  color: black;
+  border-bottom: 2px solid rgb(170, 78, 78);
 }
 
 .social-networks {
+  background: transparent;
   display: flex;
-  flex-grow: 2;
   align-items: center;
   justify-content: center;
 }
@@ -218,4 +414,25 @@ nav ul li a.active:before {
 .social-networks ul li:hover {
   color: rgb(167, 146, 129);
   border: 1px solid rgb(167, 146, 129);
+}
+
+@keyframes introload-from-left {
+  from {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
+}
+@keyframes introload-from-right {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0px);
+    opacity: 1;
+  }
 }/*# sourceMappingURL=index.css.map */

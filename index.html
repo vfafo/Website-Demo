@@ -6,16 +6,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/css/index.css">
+  
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:wght@200&family=Poppins&family=Yeseva+One&display=swap" rel="stylesheet">
     <title>AGRABAH</title>
 </head>
 
@@ -43,21 +37,16 @@
                 </ul>
             </nav>
         </header>
-        <!--       
-        <section class="main-section">
-        <h1 class="main-title">Welcome to AGRABAH</h1>
-      
-        <h3 class="subtitle" id="subtitle">       </h3>
-        </section>
-     -->
-        <section class="welcome">
-            <div class="welcome-title">
+        <!-- <span class="reservation-card-should-appear"></span> -->
+        <section class="welcome-background welcome ">
+            <div class="title-font welcome-title ">
                 <h2>
                     Welcome to AGRABAH
                 </h2>
-                <div class="subtitle">𝗖𝗼𝗳𝗳𝗲𝗲|𝗦𝗵𝗶𝘀𝗵𝗮|𝗙𝗼𝗼𝗱 𝗮𝗻𝗱 𝗺𝗼𝗿𝗲.</div>
+                <div class="title-font subtitle">𝗖𝗼𝗳𝗳𝗲𝗲|𝗦𝗵𝗶𝘀𝗵𝗮|𝗙𝗼𝗼𝗱 𝗮𝗻𝗱 𝗺𝗼𝗿𝗲.</div>
+                <span></span>
             </div>
-            <div class="welcome-details">
+            <div class="description-font welcome-details">
                 <p>Choose one of our delicious house blends <br>
                     or mix and match from nearly 100 different <br>
                     flavors to create your own. Each customer <br>
@@ -97,10 +86,60 @@
                     </div>
                 </div>
             </div>
+            <div class="reservation-card">
+                <h2>Make a reservation</h2>
+                <form class="contact-form-container" action="https://formsubmit.co//velisarios1234@gmail.com"
+                    method="POST">
+                    <div class="row row_1">
+                        <div class="form-attribute form-fname">
+                            <input class="form-input" type="text" id="fname" name="firstname" placeholder="Name">
+                        </div>
+                    </div>
+
+
+                    <div class="row row_2">
+                        <div class="form-attribute form-date-time">
+                            <input class="form-input" type="datetime-local" id="lname" name="emailAdr" placeholder="Date and Time"
+                                required>
+                        </div>
+                        <div class="form-attribute form-phone">
+                            <input class="form-input" type="tel" id="lphone" name="phoneNum" placeholder="phone number.."
+                                pattern="69[0-9]{8}" required>
+                        </div>
+                    </div>
+                    <div class="form-submit">
+                        <input class="input-submit" type="submit" value="Make a Reservation" name="makeAReservation">
+                    </div>
+                </form>
+            </div>
         </section>
         <section class="description">
-            
+            <div class="visit-us-card">
+                <h2 class="title-font">Visit us to get your hookah!</h2>
+                <span></span>
+                <p class="description-font">
+                    Come on in and get your hookah!
+                    Our customers enjoy complimentary Moroccan Mint Tea and water <br>
+                    with their hookah. With nearly 100 flavors of shisha to chose from, our <br>
+                    customers never run out of options.
+                </p>
+                <a class="explore-flavours-btn" href="#">Explore our flavours</a>
+            </div>
 
+        </section>
+
+        <section class="menu-section">
+            
+            <h2 class="title-font">Daily fresh foods</h2>
+            <p class="description-font">
+               Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                Quidem cupiditate porro assumenda dicta corporis error fugiat <br> 
+                perspiciatis molestias explicabo est? <br>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. <br>
+                Quidem cupiditate porro assumenda dicta corporis error fugiat <br> 
+                perspiciatis molestias explicabo est?
+            </p>
+            <a class="explore-flavours-btn" href="#">Find out more!</a>
         </section>
 
         <footer class="social-networks">
@@ -133,6 +172,8 @@
             });
         }
     </script>
+
+    <script src="./assets/js/navBar.js"></script>
 </body>
 
 </html>
